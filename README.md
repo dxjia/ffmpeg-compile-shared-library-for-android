@@ -5,7 +5,8 @@
 # 环境
   ubuntu 12.04LTS x86_64<br>
   android-ndk64-r10-linux-x86_64<br>
-  ffmpeg 2.6.2
+  ffmpeg 2.6.2<br>
+  我是在ubuntu下进行移植的，windows下应该也可以，没有尝试过。
 
 # 获取代码
 ```
@@ -14,6 +15,9 @@
 
 # 使用
 ##Step 1
+安装android linux NDK以及SDK，并配置环境变量；<br>
+从[ffmpeg官网](http://ffmpeg.org/)下载ffmpeg源码包;<br>
+##Step 2
 修改build_android.sh中的 TMPDIR、NDK、SYSROOT、TOOLCHAIN、PREFIX变量为自己的具体情况，具体如下：<br>
 #####1.指定零时目录
 ```
@@ -80,13 +84,13 @@ PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install
 ADDI_CFLAGS="-marm"
 build_one
 ```
-##Step 2
+##Step 3
 ```
 cd source/ffmpeg
 ./build_andrioid.sh
 ```
 
-##Step 3
+##Step 4
 等待一段时间后，会在 $PREFIX 目录下生成 include和lib两个文件夹，将lib文件夹中的 pkgconfig 目录和so的链接文件删除，只保留so文件，然后将include 和lib两个目录一起copy到你的apk jni下去编译，具体请参考我的另外一个项目[ffmpeg-jni-sample](https://github.com/dxjia/ffmpeg-jni-sample)
 
 # Reference & Thanks
