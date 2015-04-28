@@ -12,10 +12,8 @@
 ``
 
 #编译
-``java
-  cd source/ffmpeg
-  ./build_andrioid.sh
-``
+cd source/ffmpeg<br>
+./build_andrioid.sh
 
 # Reference & Thanks
   [android-ffmpeg-tutorial](https://github.com/roman10/android-ffmpeg-tutorial)
