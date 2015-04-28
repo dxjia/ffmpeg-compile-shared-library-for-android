@@ -11,3 +11,5 @@ git clone git@github.com:dxjia/ffmpeg-for-android-shared-library.git
 ``
 ./build_andrioid.sh
 ``
+# Reference & Thanks
+ [android-ffmpeg-tutorial](https://github.com/roman10/android-ffmpeg-tutorial)
