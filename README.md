@@ -13,7 +13,7 @@ git clone git@github.com:dxjia/ffmpeg-for-android-shared-library.git
 
 #编译
 ``
-cd source/ffmpeg＜/br＞
+cd source/ffmpeg
 ./build_andrioid.sh
 ``
 
