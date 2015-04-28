@@ -82,7 +82,7 @@ build_one
 ```
 ##Step 2
 ```
-cd source/ffmpeg<br>
+cd source/ffmpeg
 ./build_andrioid.sh
 ```
 
