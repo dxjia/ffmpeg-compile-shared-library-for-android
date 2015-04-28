@@ -10,4 +10,4 @@ git clone git@github.com:dxjia/ffmpeg-for-android-shared-library.git
 #编译
 ``
 ./build_andrioid.sh
-
+``
