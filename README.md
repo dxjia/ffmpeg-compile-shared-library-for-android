@@ -3,7 +3,7 @@
 本项目使用的是ffmpeg 2.6.2版本
 
 # 环境
-  ubuntu 12.04LTS x86_64
+  ubuntu 12.04LTS x86_64<br>
   android-ndk64-r10-linux-x86_64
 
 # 获取代码
@@ -13,7 +13,7 @@
 
 #编译
 ``
-  cd source/ffmpeg
+  cd source/ffmpeg<br>
   ./build_andrioid.sh
 ``
 
