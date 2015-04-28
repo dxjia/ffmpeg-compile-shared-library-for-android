@@ -12,8 +12,8 @@
 ``
 
 #编译
-``
-  cd source/ffmpeg<br>
+``java
+  cd source/ffmpeg
   ./build_andrioid.sh
 ``
 
