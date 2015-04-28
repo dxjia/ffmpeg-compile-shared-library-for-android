@@ -43,7 +43,7 @@ PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install
 ```
 这个目录是ffmpeg编译后的so的输出目录，会有一个include和lib文件夹生成在这里，这也是我们之后要在android apk中使用的.<br>
 <br>
-#####我的build_android.sh示例
+#####build_android.sh示例
 可以修改该文件来控制ffmpeg的编译config来达到自己想要的库文件，我这里为了得到动态链接库，--enable-shared，并--disable-static，我开放了所有的编解码器，如果有不需要的，可以通过--disable-coder和--disable-decoder来指定，具体查看ffmpeg文档.
 
 
