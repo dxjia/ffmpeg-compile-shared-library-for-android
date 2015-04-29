@@ -17,6 +17,8 @@
 ##Step 1
 安装android linux NDK以及SDK，并配置环境变量；<br>
 从[ffmpeg官网](http://ffmpeg.org/)下载ffmpeg源码包;也可以直接使用我本项目中的ffmpeg源码，我所使用的是2.6.2版本<br>
+如果要使用自己下载的ffmpeg源码，需要先将source/ffmpeg下的所有内容删除，然后将自己所下载的源码包解压到ffmpeg目录下<br>
+
 ##Step 2
 修改ffmpeg/configure文<br>
 将
@@ -35,12 +37,14 @@ SLIB_INSTALL_LINKS='$(SLIBNAME)'
 ```
 这样编译出来的so命名才符合android的使用。
 ##Step 3
-在ffmpeg源码目录下新建build_android.sh文件，并修改build_android.sh中的 TMPDIR、NDK、SYSROOT、TOOLCHAIN、PREFIX变量为自己的具体情况，具体如下：<br>
+本项目提供了分别编译arm平台库和x86库的sh文件，分别为`source/build_android_arm.sh` 以及 `source/build_android_x86.sh`<br>
+下面以build_android_arm.sh为例进行说明：<br>
+将source/build_android_arm.sh复制到ffmpeg目录下，并修改build_android_arm.sh中的 TMPDIR、NDK、SYSROOT、TOOLCHAIN、PREFIX变量为自己的具体情况，具体如下：<br>
 #####1.指定零时目录
 ```
 export TMPDIR=/home/djia/tmpdir
 ```
-必须要有，ffmpeg编译要用；<br>
+指定一个临时目录，可以是任何路径，但必须保证存在，ffmpeg编译要用；<br>
 #####2.指定NDK路径
 ```
 NDK=/home/djia/android/android-ndk-r10
@@ -60,7 +64,7 @@ PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install
 ```
 这个目录是ffmpeg编译后的so的输出目录，会有一个include和lib文件夹生成在这里，这也是我们之后要在android apk中使用的.<br>
 <br>
-#####build_android.sh示例
+#####build_android_arm.sh示例
 可以修改该文件来控制ffmpeg的编译config来达到自己想要的库文件，我这里为了得到动态链接库，--enable-shared，并--disable-static，我开放了所有的编解码器，如果有不需要的，可以通过--disable-coder和--disable-decoder来指定，具体查看ffmpeg文档.
 
 
@@ -70,6 +74,9 @@ export TMPDIR=/home/djia/tmpdir
 NDK=/home/djia/android/android-ndk-r10
 SYSROOT=$NDK/platforms/android-16/arch-arm/
 TOOLCHAIN=/home/djia/android/android-ndk-r10/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64
+CPU=arm
+PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install/arm/
+ADDI_CFLAGS="-marm"
 function build_one
 {
 ./configure \
@@ -96,15 +103,12 @@ make clean
 make
 make install
 }
-CPU=arm
-PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install
-ADDI_CFLAGS="-marm"
 build_one
 ```
 ##Step 4
 ```
 cd source/ffmpeg
-./build_andrioid.sh
+./build_andrioid_arm.sh
 ```
 
 ##Step 5

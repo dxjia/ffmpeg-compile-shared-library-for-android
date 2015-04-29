@@ -5,7 +5,7 @@ SYSROOT=$NDK/platforms/android-16/arch-arm/
 TOOLCHAIN=/home/djia/android/android-ndk-r10/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64
 
 CPU=arm
-PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install
+PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install/arm/
 ADDI_CFLAGS="-marm"
 
 function build_one
