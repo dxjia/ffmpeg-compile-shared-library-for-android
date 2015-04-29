@@ -16,9 +16,9 @@
 # 使用
 ##Step 1
 安装android linux NDK以及SDK，并配置环境变量；<br>
-从[ffmpeg官网](http://ffmpeg.org/)下载ffmpeg源码包;<br>
+从[ffmpeg官网](http://ffmpeg.org/)下载ffmpeg源码包;也可以直接使用我本项目中的ffmpeg源码，我所使用的是2.6.2版本<br>
 ##Step 2
-修改build_android.sh中的 TMPDIR、NDK、SYSROOT、TOOLCHAIN、PREFIX变量为自己的具体情况，具体如下：<br>
+在ffmpeg源码目录下新建build_android.sh文件，并修改build_android.sh中的 TMPDIR、NDK、SYSROOT、TOOLCHAIN、PREFIX变量为自己的具体情况，具体如下：<br>
 #####1.指定零时目录
 ```
 export TMPDIR=/home/djia/tmpdir
