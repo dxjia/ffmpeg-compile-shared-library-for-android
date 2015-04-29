@@ -18,6 +18,23 @@
 安装android linux NDK以及SDK，并配置环境变量；<br>
 从[ffmpeg官网](http://ffmpeg.org/)下载ffmpeg源码包;也可以直接使用我本项目中的ffmpeg源码，我所使用的是2.6.2版本<br>
 ##Step 2
+修改ffmpeg/configure文<br>
+将
+```
+SLIBNAME_WITH_MAJOR='$(SLIBNAME).$(LIBMAJOR)'
+LIB_INSTALL_EXTRA_CMD='$$(RANLIB)"$(LIBDIR)/$(LIBNAME)"'
+SLIB_INSTALL_NAME='$(SLIBNAME_WITH_VERSION)'
+SLIB_INSTALL_LINKS='$(SLIBNAME_WITH_MAJOR)$(SLIBNAME)'
+```
+修改为：<br>
+```
+SLIBNAME_WITH_MAJOR='$(SLIBPREF)$(FULLNAME)-$(LIBMAJOR)$(SLIBSUF)'
+LIB_INSTALL_EXTRA_CMD='$$(RANLIB)"$(LIBDIR)/$(LIBNAME)"'
+SLIB_INSTALL_NAME='$(SLIBNAME_WITH_MAJOR)'
+SLIB_INSTALL_LINKS='$(SLIBNAME)'
+```
+这样编译出来的so命名才符合android的使用。
+##Step 3
 在ffmpeg源码目录下新建build_android.sh文件，并修改build_android.sh中的 TMPDIR、NDK、SYSROOT、TOOLCHAIN、PREFIX变量为自己的具体情况，具体如下：<br>
 #####1.指定零时目录
 ```
@@ -84,13 +101,13 @@ PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install
 ADDI_CFLAGS="-marm"
 build_one
 ```
-##Step 3
+##Step 4
 ```
 cd source/ffmpeg
 ./build_andrioid.sh
 ```
 
-##Step 4
+##Step 5
 等待一段时间后，会在 $PREFIX 目录下生成 include和lib两个文件夹，将lib文件夹中的 pkgconfig 目录和so的链接文件删除，只保留so文件，然后将include 和lib两个目录一起copy到你的apk jni下去编译，具体请参考我的另外一个项目[ffmpeg-jni-sample](https://github.com/dxjia/ffmpeg-jni-sample)
 
 # Reference & Thanks
