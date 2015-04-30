@@ -107,6 +107,7 @@ build_one
 ```
 ##Step 4
 ```
+cp source/build_android_arm.sh source/ffmpeg/
 cd source/ffmpeg
 ./build_andrioid_arm.sh
 ```
