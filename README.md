@@ -40,7 +40,7 @@ SLIB_INSTALL_LINKS='$(SLIBNAME)'
 本项目提供了分别编译arm平台库和x86库的sh文件，分别为`source/build_android_arm.sh` 以及 `source/build_android_x86.sh`<br>
 下面以build_android_arm.sh为例进行说明：<br>
 将source/build_android_arm.sh复制到ffmpeg目录下，并修改build_android_arm.sh中的 TMPDIR、NDK、SYSROOT、TOOLCHAIN、PREFIX变量为自己的具体情况，具体如下：<br>
-#####1.指定零时目录
+#####1.指定临时目录
 ```
 export TMPDIR=/home/djia/tmpdir
 ```
