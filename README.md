@@ -68,7 +68,7 @@ PREFIX=/root/workspace/ffmpeg_shared_compile/dxjia_ffmpeg_install
 可以修改该文件来控制ffmpeg的编译config来达到自己想要的库文件，我这里为了得到动态链接库，--enable-shared，并--disable-static，我开放了所有的编解码器，如果有不需要的，可以通过--disable-coder和--disable-decoder来指定，具体查看ffmpeg文档.
 
 
-```java
+```bash
 #!/bin/bash
 export TMPDIR=/home/djia/tmpdir
 NDK=/home/djia/android/android-ndk-r10
