@@ -113,7 +113,7 @@ cd source/ffmpeg
 ```
 
 ##Step 5
-等待一段时间后，会在 $PREFIX 目录下生成 include和lib两个文件夹，将lib文件夹中的 pkgconfig 目录和so的链接文件删除，只保留so文件，然后将include 和lib两个目录一起copy到你的apk jni下去编译，具体请参考我的另外一个项目[ffmpeg-jni-sample](https://github.com/dxjia/ffmpeg-jni-sample)
+等待一段时间后，会在 $PREFIX 目录下生成 include和lib两个文件夹，将lib文件夹中的 pkgconfig 目录和so的链接文件删除，只保留so文件，然后将include 和lib两个目录一起copy到你的apk jni下去编译，具体请参考我的另外一个项目[ffmpeg-jni-sample](https://github.com/dxjia/ffmpeg-jni-sample) 以及 blog [将 ffmpeg 编译为 android JNI 库](http://www.dxjia.cn/2016/07/27/how_to_compile_ffmpeg_for_android/)
 
 # Reference & Thanks
   [android-ffmpeg-tutorial](https://github.com/roman10/android-ffmpeg-tutorial)
